@@ -1,0 +1,89 @@
+---
+TryHackMe vragen en antwoorden:
+
+Welke register bevat het adres van de volgende instructie die uitgevoerd wordt?
+Antwoord: Instruction Pointer
+
+Welke register in een 32-bit systeem wordt ook wel de Counter Register genoemd?
+Antwoord: ECX
+
+Welke registers uit bovenstaande zijn niet aanwezig in een 32-bit systeem?
+Antwoord: R8-R15
+
+control unit --> krijgt inscructies van main memory (RAM)
+32 bit --> EIP
+64 bit --> RIP 
+
+register kleine storage snelle access cpu 
+
+RAM bevat alle code en data voor programma 
+
+Arithmetic Logic Unit: --> voert de unstructies die die krijgt van RAM uit en stuurt resultaat naar register of RAM 
+
+Instruction Pointer (program counter) --> bevat adres instructie die volgend wordt uitgevoerd
+
+x86 --> 8086 processor
+
+General-Purpose registers --> general execution of instructions by the CPU
+
+EAX of RAX --> 
+Registers zijn kleine, snelle opslagplaatsen in de CPU. Ze zijn sneller toegankelijk dan RAM, maar hebben beperkte grootte en worden daarom efficiënt gebruikt. Er zijn verschillende types registers:
+
+Instruction Pointer (IP/EIP/RIP):
+- Bevat het adres van de volgende instructie die uitgevoerd wordt.
+- 16-bit: IP (8086/x86)
+- 32-bit: EIP
+- 64-bit: RIP
+
+General-Purpose Registers:
+- Worden gebruikt voor algemene uitvoering van instructies.
+- 32-bit: EAX, EBX, ECX, EDX, ESP, EBP, ESI, EDI
+- 64-bit: RAX, RBX, RCX, RDX, RSP, RBP, RSI, RDI, R8-R15
+- EAX/RAX: Accumulator, resultaat van berekeningen
+- EBX/RBX: Base register, basisadres voor offset
+- ECX/RCX: Counter register, gebruikt voor tellen/loops
+- EDX/RDX: Data register, gebruikt bij vermenigvuldigen/delen
+- ESP/RSP: Stack pointer, wijst naar top van de stack
+- EBP/RBP: Base pointer, toegang tot parameters op de stack
+- ESI/RSI: Source index, gebruikt bij string-operaties
+- EDI/RDI: Destination index, gebruikt bij string-operaties
+- R8-R15: Extra 64-bit registers, alleen in 64-bit systemen
+
+
+Status Flag Registers:
+Worden gebruikt om de status van een uitgevoerde instructie aan te geven. In 32-bit systemen heet deze EFLAGS, in 64-bit systemen RFLAGS. Bestaat uit individuele bits (flags):
+
+- Zero Flag (ZF): Geeft aan of het resultaat van de laatste instructie nul is (ZF=1 bij resultaat 0).
+- Carry Flag (CF): Geeft aan of het resultaat te groot/klein is voor het register (CF=1 bij overflow).
+- Sign Flag (SF): Geeft aan of het resultaat negatief is (SF=1 bij negatief).
+- Trap Flag (TF): Geeft aan of de processor in debug-modus staat (TF=1 bij debugging).
+
+Segment Registers:
+16-bit registers die het geheugen opdelen in segmenten voor makkelijker adresseren. Er zijn zes segment registers:
+
+- Code Segment (CS): wijst naar het code-gedeelte in het geheugen.
+- Data Segment (DS): wijst naar het data-gedeelte.
+- Stack Segment (SS): wijst naar de stack.
+- Extra Segments (ES, FS, GS): wijzen naar extra data-segmenten.
+DS, ES, FS en GS verdelen het geheugen in vier aparte data-segmenten.
+
+
+Wanneer een programma in het geheugen wordt geladen (Windows), ziet het een abstracte weergave van het geheugen. Het programma heeft alleen toegang tot zijn eigen geheugenruimte, niet tot het volledige geheugen.
+
+Het geheugen van een programma is verdeeld in verschillende secties:
+
+Code:
+Bevat de instructies van het programma (uitvoerbaar).
+CPU kan deze sectie uitvoeren.
+
+Data:
+Bevat geïnitialiseerde, constante data (zoals globale variabelen).
+Data verandert niet tijdens uitvoering.
+
+Heap:
+Dynamisch geheugen voor variabelen die tijdens runtime worden aangemaakt en verwijderd.
+Wordt gebruikt voor data die flexibel moet zijn.
+
+Stack:
+Bevat lokale variabelen, argumenten en return address.
+Belangrijk voor controleflow; vaak doelwit bij malware (bijv. buffer overflows).

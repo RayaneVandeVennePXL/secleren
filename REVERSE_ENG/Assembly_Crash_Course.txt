@@ -1,0 +1,115 @@
+---
+Assembly Crash Course Samenvatting
+
+Binaire code:
+- Programma's worden door de CPU als binaire getallen (1en en 0en) gelezen.
+- 8 bits vormen een byte, vaak weergegeven als hexadecimaal (bijv. 0xA5).
+
+Opcodes en Operanden:
+- **Opcode**: Getal dat een CPU-instructie aanduidt (bijv. b8 voor mov eax, 0x5f).
+- **Operand**: Gegevens waarop de instructie werkt.
+
+Voorbeeld:
+040000:    b8 5f 00 00 00    mov eax, 0x5f
+- 040000: adres van instructie
+- b8: opcode (mov naar eax)
+- 5f 00 00 00: operand (0x5f, little-endian)
+
+Soorten Operanden:
+1. **Immediate**: Vaste waarde, bijv. mov eax, 0x5f
+2. **Register**: CPU-register, bijv. mov ebx, eax
+3. **Memory**: Geheugenlocatie, bijv. mov eax, [ebx]
+
+Registers:
+- Kleine, snelle opslagplaatsen in de CPU.
+- Sneller dan RAM, maar beperkt in grootte.
+
+Belangrijkste registers (32-bit):
+- EAX: Accumulator, resultaat van berekeningen
+- EBX: Base register, basisadres
+- ECX: Counter register, voor loops
+- EDX: Data register
+- ESP: Stack pointer
+- EBP: Base pointer
+- ESI: Source index
+- EDI: Destination index
+
+Instruction Pointer (EIP):
+- Bevat adres van volgende uit te voeren instructie.
+
+Status Flags (EFLAGS):
+- Zero Flag (ZF): Resultaat nul?
+- Carry Flag (CF): Overflow?
+- Sign Flag (SF): Negatief?
+
+Segment Registers:
+- CS: Code segment
+- DS: Data segment
+- SS: Stack segment
+- ES/FS/GS: Extra data segmenten
+
+Geheugenindeling programma:
+- **Code**: Uitvoerbare instructies
+- **Data**: Geïnitialiseerde data
+- **Heap**: Dynamisch geheugen
+- **Stack**: Lokale variabelen, argumenten, return address
+
+Voorbeeld instructie:
+mov eax, [ebx]   ; laad waarde uit geheugenadres in ebx naar eax
+mov ecx, 0x10    ; zet 0x10 in ecx
+add eax, ecx     ; tel ecx op bij eax
+
+TASK3 ---------------------------------------------------------------------------------
+Algemene instructies:
+- Instructies geven de CPU opdrachten, vaak met operanden uit registers, geheugen of vaste waarden.
+
+MOV:
+- Verplaatst een waarde van bron naar bestemming.
+- Voorbeelden:
+  mov eax, 0x5f      ; vaste waarde naar register
+  mov ebx, eax       ; register naar register
+  mov eax, [ebx]     ; waarde uit geheugen naar register
+
+LEA:
+- "Load Effective Address"; slaat het adres zelf op, niet de waarde.
+- Voorbeeld:
+  lea eax, [ebp+4]   ; slaat adres ebp+4 op in eax
+
+NOP:
+- "No Operation"; doet niets, gebruikt als opvulling (nop sled).
+- Voorbeeld:
+  nop
+
+Shift instructies:
+- Verschuiven bits in een register.
+- shr (shift right), shl (shift left)
+- Voorbeeld:
+  shl eax, 1         ; verschuift bits in eax 1 plek naar links (maal 2)
+  shr eax, 1         ; verschuift bits in eax 1 plek naar rechts (delen door 2)
+- Handig voor snelle vermenigvuldiging/deling door machten van 2.
+
+Rotate instructies:
+- ROR (rotate right), ROL (rotate left); bits worden rondgedraaid in register.
+- Voorbeeld:
+  ror al, 1          ; roteert bits in al 1 plek naar rechts
+  rol al, 1          ; roteert bits in al 1 plek naar links
+- Verschil met shift: bits die eruit gaan, komen aan de andere kant weer terug.
+
+
+
+Belangrijkste flags in x86 assembly (EFLAGS):
+- Carry Flag (CF): Zet bij overflow/borrow van hoogste bit, ook bij bitverschuivingen.
+- Parity Flag (PF): Zet als laagste byte een even aantal 1-bits heeft.
+- Auxiliary Flag (AF): Zet bij carry/borrow tussen bit 3 en 4 (BCD).
+- Zero Flag (ZF): Zet als resultaat nul is.
+- Sign Flag (SF): Zet als resultaat negatief is (hoogste bit = 1).
+- Overflow Flag (OF): Zet bij overflow in signed berekeningen.
+- Direction Flag (DF): Richting bij string-operaties (0 = vooruit, 1 = achteruit).
+- Interrupt Enable Flag (IF): Zet hardware interrupts aan (1) of uit (0).
+
+Flags zijn belangrijk voor voorwaardelijke sprongen en controle in assembly code.
+
+
+
+
+
