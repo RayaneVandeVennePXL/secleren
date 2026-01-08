@@ -1,0 +1,25 @@
+🛡️ Malware Analyse: De 4 Fasen
+Malware analyse wordt opgebouwd van "veilig en oppervlakkig" naar "risicovol en diepgaand".
+
+1. Basic Static Analysis (Kijken zonder aanraken)
+Wat: Je bekijkt het bestand zonder het uit te voeren.
+Focus: Bestandsnaam, grootte, hashes (MD5/SHA256), en "strings" (leesbare tekst in de code).
+Doel: Snel bepalen of het bestand bekend is als schadelijk.
+
+2. Basic Dynamic Analysis (Kijken terwijl het draait)
+Wat: Je voert de malware uit in een veilige omgeving (Sandbox of VM).
+Focus: Welke bestanden past hij aan? Met welke IP-adressen maakt hij verbinding?
+Doel: Het gedrag observeren (bijv. "hij probeert verbinding te maken met een Russische server").
+
+3. Advanced Static Analysis (De code ontleden)
+Wat: Het "reverse engineeren" van de code met een disassembler.
+Focus: De machinecode terugvertalen naar leesbare instructies (Assembly).
+Tools: IDA Pro, Ghidra, Binary Ninja.
+Doel: Begrijpen hoe de malware precies werkt en verborgen functies vinden.
+
+4. Advanced Dynamic Analysis (Stap voor stap debuggen)
+Wat: De malware draaien terwijl je een debugger gebruikt om de executie te pauzeren.
+Focus: Geheugen uitlezen en instructies één voor één volgen.
+Doel: Ontdekken hoe de malware probeert detectie te omzeilen (evasion techniques).
+
+

@@ -95,6 +95,9 @@ Rotate instructies:
   rol al, 1          ; roteert bits in al 1 plek naar links
 - Verschil met shift: bits die eruit gaan, komen aan de andere kant weer terug.
 
+In x86 assembly heeft de CPU verschillende flags die het resultaat van bewerkingen aangeven. 
+Deze flags zijn bits in het EFLAGS-register. \
+Elke flag geeft een specifieke toestand of resultaat van de laatste rekenkundige of logische operatie weer.
 
 
 Belangrijkste flags in x86 assembly (EFLAGS):
@@ -108,6 +111,92 @@ Belangrijkste flags in x86 assembly (EFLAGS):
 - Interrupt Enable Flag (IF): Zet hardware interrupts aan (1) of uit (0).
 
 Flags zijn belangrijk voor voorwaardelijke sprongen en controle in assembly code.
+
+Which flag will be set if the result of the operation is zero? (Answer in abbreviation)
+ZF
+
+Correct Answer
+Which flag will be set if the result of the operation is negative? (Answer in abbreviation)
+SF
+Correct Answer
+
+Rekenkundige en logische instructies in x86 assembly:
+
+Optellen en aftrekken:
+- add bestemming, waarde   ; telt waarde op bij bestemming
+- sub bestemming, waarde   ; trekt waarde af van bestemming
+- ZF wordt gezet als resultaat nul is, CF als er een borrow is
+
+Vermenigvuldigen en delen:
+- mul waarde   ; vermenigvuldigt waarde met eax, resultaat in edx:eax
+- div waarde   ; deelt edx:eax door waarde, resultaat in eax, rest in edx
+
+Verhogen en verlagen:
+- inc eax      ; verhoogt eax met 1
+- dec eax      ; verlaagt eax met 1
+
+Logische instructies:
+- and al, 0x7c ; bitwise AND, alleen 1 als beide bits 1 zijn
+- or al, 0x7c  ; bitwise OR, 1 als één van beide bits 1 is
+- not al       ; bitwise NOT, keert alle bits om
+- xor al, 0x7c ; bitwise XOR, 1 als bits verschillend zijn
+- xor al, al   ; zet register op nul (veel gebruikt)
+
+Deze instructies zijn essentieel voor berekeningen en logica in assembly code.
+
+Wat zijn arithmetic operations?
+- Arithmetic operations (rekenkundige bewerkingen) zijn basisbewerkingen zoals optellen, aftrekken, vermenigvuldigen en delen.
+- De CPU voert deze uit met speciale instructies direct op registers en geheugen.
+- Ze vormen de kern van alle berekeningen in een programma en zijn essentieel voor wiskundige en logische taken in assembly.
+
+Conditionals en branching in x86 assembly:
+
+TEST:
+- test bestemming, bron ; bitwise AND, zet ZF als resultaat 0 is
+- Handig om te checken op nulwaarde
+
+CMP:
+- cmp bestemming, bron ; vergelijkt twee waarden, zet ZF of CF
+- Werkt als subtractie zonder resultaat op te slaan
+- ZF gezet als gelijk, CF gezet als bron > bestemming
+
+Branching:
+- Zonder branching loopt de code lineair door
+- Branching verandert de Instruction Pointer en dus de volgorde van uitvoering
+
+JMP:
+- jmp locatie ; springt naar opgegeven adres
+
+Conditionele jumps:
+- jz / je : springt als ZF=1 (gelijk)
+- jnz / jne : springt als ZF=0 (niet gelijk)
+- jg / jl : springt als bestemming groter/kleiner dan bron (signed)
+- jge / jle : springt als groter/gelijk of kleiner/gelijk (signed)
+- ja / jb : springt als boven/onder (unsigned)
+- jae / jbe : springt als boven/gelijk of onder/gelijk (unsigned)
+
+Met deze instructies kan de CPU beslissingen nemen en de controleflow van het programma aanpassen.
+
+De stack in x86 assembly:
+- De stack is een LIFO-geheugenstructuur: laatste erin, eerste eruit.
+- Wordt gebruikt voor tijdelijke opslag van data, return-adressen en functie-argumenten.
+
+PUSH:
+- push bron ; plaatst waarde van bron bovenop de stack, ESP wordt verlaagd
+- pusha/pushad ; slaat alle algemene registers op de stack
+
+POP:
+- pop bestemming ; haalt waarde van bovenop de stack en zet in bestemming, ESP wordt verhoogd
+- popa/popad ; herstelt alle algemene registers vanaf de stack
+
+CALL:
+- call locatie ; roept een functie aan, slaat return-adres op de stack
+- Bij een functiecall worden argumenten vaak op de stack gezet, en de stack wordt aangepast (prologue/epilogue)
+
+De stack is cruciaal voor functie-aanroepen, lokale variabelen en het bewaren van de staat van registers.
+
+
+
 
 
 
