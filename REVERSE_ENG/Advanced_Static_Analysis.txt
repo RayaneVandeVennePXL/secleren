@@ -23,3 +23,32 @@ Focus: Geheugen uitlezen en instructies één voor één volgen.
 Doel: Ontdekken hoe de malware probeert detectie te omzeilen (evasion techniques).
 
 
+-------------------------
+malware gebruikt vaak windows api 
+- import functie belangrijk 
+- keylogger api calls bv SetWindowsHookEx --> keystokes bekijken, ziet wat je typt op je systeem
+
+downloader --> malware gebruikt voor andere malware te downloaden op systeem 
+
+c2 communication (command and control) --> methode communiceren met externe server of attacker 
+
+data exfiltration --> unauthorized data transfer from an organization to an external destination
+
+
+dropper --> installeert andere malware op systeem, downloader download het 
+
+api hooking --> api calls intercepten en veranderen
+
+Anti-debugging and VM detection --> are techniques used by malware to evade detection and analysis by security researchers.
+
+
+process hollowing --> slechte code injecten in legit proces 
+
+
+
+
+
+
+
+
+

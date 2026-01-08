@@ -1,0 +1,139 @@
+.exe --> executable of portable executable file 
+PE file 
+kan gerund worden op elke windows system 
+
+A PE file is a Common Object File Format (COFF) data structure.
+
+pe-tree --> tool analyseren PE header 
+
+al de headers zijn data type STRUCT 
+
+
+IMAGE_DOS_HEADER and DOS_STUB -------------------------------------------------
+
+IMAGE_DOS_HEADER --> eerste 64 bytes van de PE File 
+
+eerste 2 bytes --> 4D 5A --> MZ --> geven aan dat het een portable executable is. --> e_magic 
+
+Intel x86 / x64 – Windows --> little endian --> Waarde: 0x5A4D
+Adres →   00   01
+Bytes  →  4D   5A
+
+e_lfanew --> laatste value in IMAGE_DOS_HEADER
+scheid IMAGE_DOS_HEADER met IMAGE_NT_HEADERS
+
+IMAGE_DOS_HEADER niet echt gebruikt voor malware analyse 
+
+
+DOS_STUB --> bevat message die we zien in de hex editor 
+
+hoe hoger entropy, hoe meer random de data 
+
+
+NT_HEADERS ------------------------------------------------------------------------
+
+bevat:
+- signature
+- file header 
+- optional header 
+
+start adres in e_lfanew van IMAGE_DOS_HEADER 
+
+eerste 4 bytes --> signature --> herkennen aan PE 
+
+FILE_HEADER -----------------------------------------------------------------
+
+belangrijke informatie:
+- machine --> zegt architectuur systeem dat pe file heeft gemaakt I386 --> 32 bit intel 
+- numberofsections --> hoeveel secties pe file heeft 
+- timedatestamp --> datum en tijd binaire compilatie 
+- PointerToSymbolTable and NumberOfSymbols: These fields are not generally related to PE files. Instead, they are here due to the COFF file headers.
+- SizeOfOptionalHeader
+- Characteristics --> karakteristieken file (belangrijk)
+
+
+
+OPTIONAL-HEADER ---------------------------------------------------------
+een van de meest belangrijke info in PE headers 
+
+start net na file header 
+
+- magic --> 32 of 64 bit app --> 0x010b --> 32 --> ox020b --> 64 bit 
+- AddressOfEntryPoint --> adres van waar windows begint met uitvoeren (eerste uitvoerbare instructie is op dit adres ) berekend als ImageBase + RVA, en is cruciaal bij malware-analyse omdat hier vaak unpacking of anti-analyse begint.
+- BaseOfCode and BaseOfData: These are the addresses of the code and data sections, respectively, relative to ImageBase.
+- ImageBase  --> voorkeursadres waarop Windows de executable in het geheugen wil laden
+32 bit --> 0x00400000 --> niet altijd gegarandeerd 
+Als het programma niet op de ImageBase kan worden geladen:
+Past Windows alle absolute adressen in de code aan.
+Deze aanpassingen heten relocations.
+Relocations worden berekend relatief ten opzichte van de ImageBase.
+- subsystem --> gui, cui , ...
+- DataDirectory --> bevat import en export info 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
