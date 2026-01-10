@@ -1,0 +1,10 @@
+CTI geeft antwoord op 3 vragen:
+1: wie of wat zit er aan de andere kant van deze alert 
+2: wat was hun gedrag in het verleden 
+3: hoe antwoord mijn organisatie hier op en wat moet ik nu doen 
+
+
+data --> bv ip --> capture Artefact
+Informatie --> data + factuele annotatie --> record attributes 
+intelligence --> wat doen 
+

@@ -1,0 +1,70 @@
+cti --> cyber threat intelligence 
+================================================================================
+          SAMENVATTING: CYBER THREAT INTELLIGENCE (CTI) VOOR DE SOC
+================================================================================
+
+[ BESCHRIJVING ]
+CTI transformeert de SOC van giswerk naar gecalculeerde actie door context 
+te bieden aan de dagelijkse stroom van alerts.
+
+--------------------------------------------------------------------------------
+1. DE DRIE KERNVRAGEN VAN CTI
+--------------------------------------------------------------------------------
+Om een alert te prioriteren, moet CTI antwoord geven op:
+  [?] WIE/WAT   -> Wie zit er achter de indicator?
+  [?] GEDRAG    -> Wat was hun gedrag in het verleden?
+  [?] ACTIE     -> Hoe reageren wij hier nu op?
+
+--------------------------------------------------------------------------------
+2. HET ENRICHMENT PROCES (Van Data naar Intelligence)
+--------------------------------------------------------------------------------
++--------------+--------------------------+------------------------------------+
+| Niveau       | Definitie                | SOC L1 Actie                       |
++--------------+--------------------------+------------------------------------+
+| Data         | Rauw observabel feit     | Artefact vastleggen (bv. IP)       |
+| Informatie   | Data + annotatie         | Attributen noteren (bv. Hosting)   |
+| Intelligence | Geanalyseerd / "So-what" | Escalaties of onderdrukken (Block) |
++--------------+--------------------------+------------------------------------+
+
+--------------------------------------------------------------------------------
+3. ESSENTIËLE INDICATOREN
+--------------------------------------------------------------------------------
+* IOC (Indicator of Compromise): Bewijs van een geslaagde inbreuk (Hash, C2 IP).
+* IOA (Indicator of Attack): Bewijs van een lopende actie (PowerShell scripts).
+* TTP (Tactics, Techniques, Procedures): De methodologie (MITRE ATT&CK IDs).
+
+--------------------------------------------------------------------------------
+4. INDICATOR TYPES & TOOLS
+--------------------------------------------------------------------------------
+TYPE            VOORBEELD               TOOLS / BRONNEN
+----            ---------               ---------------
+IPv4/IPv6       45.155.205.3            WHOIS, VirusTotal, Shodan
+Domain/FQDN     malicious-upd[.]net     Passive-DNS, urlscan.io
+File Hash       e99a18c428cb38d...      Hybrid-Analysis, Any.Run
+Email           billing@evil.com        MXToolbox, HaveIBeenPwned
+Local Artefact  HKCU\...\run            Sigma rules, EDR queries
+
+--------------------------------------------------------------------------------
+5. CTI CLASSIFICATIES
+--------------------------------------------------------------------------------
+[STRATEGISCH]  Hoger management: Trends, jaarlijkse rapporten, risico-analyse.
+[TACTISCH]     Analisten: TTP's van adversaries (hoe vallen ze aan?).
+[OPERATIONEEL] Incident Response: Campagne-specifiek, motieven en doelwitten.
+[TECHNISCH]    L1 Triage: Atomaire indicatoren zoals IP-adressen en hashes.
+
+--------------------------------------------------------------------------------
+6. BRONNEN & INFRASTRUCTUUR
+--------------------------------------------------------------------------------
+* FEEDS:    Stroom van rauwe data (JSON/STIX/TAXII).
+* PLATFORM: Opslag & verrijking (bv. MISP, OpenCTI).
+* BRONNEN:  - Intern (SIEM/EDR logs)
+            - Commercieel (Betaalde vendor feeds)
+            - OSINT (Publieke blogs/databases)
+            - Communities (ISACs)
+
+================================================================================
+TIP: Gebruik browser bookmarks of SIEM-launchers voor snelle lookups. 
+30 seconden winst per alert bespaart uren per maand.
+================================================================================
+
+

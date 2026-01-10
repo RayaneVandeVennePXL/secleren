@@ -1,0 +1,54 @@
+windows log files --> C:\Windows\System32\winevt\Logs
+
+Event Viewer (GUI-based application)
+Wevtutil.exe (command-line tool)
+Get-WinEvent (PowerShell cmdlet)
+
+sysmon:
+Terwijl Windows Event Logs de standaard systeemgebeurtenissen bijhouden, biedt Sysmon veel gedetailleerdere en hoogwaardigere logs 
+die essentieel zijn voor het opsporen van complexe dreigingen en afwijkingen binnen een netwerk
+
+
+Wazuh is een uitgebreide EDR-oplossing die gebruikmaakt van agents op apparaten om verdachte activiteiten en kwetsbaarheden te monitoren en 
+deze data visueel weer te geven in dashboards, zoals een agent die direct een melding stuurt naar de centrale manager wanneer er honderd mislukte 
+inlogpogingen binnen één minuut op een server plaatsvinden.
+
+
+
+
+Where do the Windows Event logs (.evtx files) typically reside?
+C:\Windows\System32\winevt\Logs
+
+Correct Answer
+Provide the command used to enter OSQuery CLI.
+
+osqueryi
+
+Correct Answer
+What does EDR mean? Provide the answer in lowercase.
+
+endpoint detection and response
+
+Correct Answer
+
+
+EVENT CORRELATION 
+Event Correlation identificeert relaties tussen verschillende logbronnen (zoals firewall- en Sysmon-logs) om een volledig scenario van een 
+incident op te bouwen, zoals het koppelen van een specifiek proces en een gebruikersaccount aan een gedetecteerde netwerkverbinding 
+om de bron van een aanval te achterhalen.
+
+
+Baselining is het proces van het vastleggen van standaardgebruikersactiviteiten en systeemprocessen om een referentiekader te creëren, \
+waardoor afwijkend gedrag — zoals een login op een ongebruikelijk tijdstip of locatie — direct kan worden gedetecteerd als een mogelijke dreiging.
+
+
+
+
+
+
+
+
+
+
+
+

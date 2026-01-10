@@ -1,0 +1,136 @@
+network security --> 3 base control levels 
+1: physical
+2: technical --> preventen unauthorized acces tot netwerk data 
+3: administrative --> consistency in security operation zoals policies maken, access levels, authentication processes 
+
+access control --> start punt network security 
+threat conrol --> detecten en preventen van afwijkende network activities 
+
+access control:
+- firewall protection --> controls binnen en buitenkomend verkeerd door rules, blockt application layer threats 
+- network access control NAC --> controleert of het device suitable genoeg is voor toegang 
+- Identification and access management IAM --> identiteit voor bepaalde toegang 
+- load balancing --> resource usage onder controle houden 
+- network segmentation --> Netwerksegmentatie verdeelt een netwerk in kleinere, beveiligde zones om toegangsniveaus te beheren en 
+gevoelige data te isoleren, zoals een gastennetwerk dat volledig gescheiden is van de interne servers met personeelsgegevens om verspreiding 
+van malware te voorkomen.
+- Virtual private network VPN --> creëren een versleutelde tunnel voor veilige communicatie over onbeveiligde netwerken zoals het internet, 
+waardoor externe apparaten veilig toegang krijgen tot interne bedrijfsmiddelen alsof ze direct op het lokale netwerk zijn aangesloten.
+- Zero trust model --> alleen wat je nodig hebt voor access, niet meer 
+
+
+Threat control:
+- Intrusion Detection and Prevention (IDS/IPS) --> inspecteert traffic en geeft alert bij afwijkend gedrag 
+- Data Loss Prevention (DLP) --> inspecteert netwerkverkeer via inhouds- en contextanalyse om te voorkomen dat gevoelige informatie 
+ongeoorloofd de organisatie verlaat, zoals het automatisch blokkeren van een e-mail waarin creditcardnummers of burgerservicenummers 
+naar een extern privéadres worden verstuurd
+- Endpoint Protection --> Protecting all kinds of endpoints and appliances that connect to the network by using a multi-layered approach like encryption, antivirus, antimalware, DLP, and IDS/IPS.
+- Cloud Security
+- security information and event management(SIEM) --> detectie door logs en traffic te bekijken 
+- Security Orchestration Automation and Response (SOAR) --> is een platform dat verschillende beveiligingstools en menselijke acties aan elkaar koppelt en automatiseert om razendsnel op dreigingen te reageren, zoals een systeem dat bij een phishing-melding automatisch de bijlage scant, het malafide domein blokkeert in de firewall en het e-mailaccount van de gebruiker reset zonder dat een analist dit handmatig hoeft te doen.
+- Network Traffic Analysis & Network Detection and Response --> Inspecting network traffic or traffic capture to identify anomalies and threats.
+
+
+Managed Security Services mms 
+mmsp --> managed security service provider 
+
+
+
+2 technieken traffic analyse:
+- flow analysis --> data/bewijs van de netwerking devices 
+voordelen --> makkelijk collecten en analyseren 
+moeilijk --> geen volledige pakket details om root van cause te vinden 
+
+- packet analyis --> alle netwerk data (DPI deep packet inspection) 
+voordeel: full packet details 
+moeilijk --> kost tijd en skills 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
