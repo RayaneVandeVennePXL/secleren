@@ -1,0 +1,102 @@
+volatile memory --> opgeslagen data dat systeem en user level data opslaat terwijl de comuter runt 
+
+herstarten systeem --> data weg 
+
+RAM zo snel mogelijk capturen omdat het weg is als systeem uit gaat 
+
+snel traag 
+cpu registers --> cpu cache --> ram --> disk
+
+Virtual memory is een virtuele adresruimte die het besturingssysteem aan elk proces toewijst.
+Een programma werkt met virtuele adressen, niet rechtstreeks met fysiek RAM.
+Het OS mapped deze virtuele adressen naar:
+Fysiek RAM, of
+Schijf (swap/pagefile) wanneer RAM tijdelijk vol is.
+Swap is gereserveerde schijfruimte om RAM te ontlasten.
+Hierdoor kan het systeem:
+meer processen draaien dan er fysiek RAM is,
+elk proces laten lijken alsof het eigen, geïsoleerde geheugen heeft.
+Het OS verplaatst continu data tussen RAM en disk afhankelijk van belasting en prioriteit.
+
+
+Stack : Stores temporary data like function arguments and return addresses. It grows and shrinks as functions are called and returned.
+Heap : Used for dynamic memory allocation during runtime, such as objects and buffers created by programs.
+Executable (.text): Stores the actual code or instructions the CPU runs.
+Data sections: Space to store global variables and other data the executable needs.
+
+
+MEMORY DUMP ------------------------------------------------
+
+snapshot van ram op een bepaalde tijd --> It captures everything stored in volatile memory, including running processes, active sessions, 
+network activity, and sometimes even sensitive data like credentials.
+
+
+verschillende type memory dumps:
+- full memory dump --> capture ALL RAM --> user en kernel space --> forencics goed 
+- process dump --> memory single running process --> Helpful for reverse engineering or isolating malicious behavior within a specific application.
+- Pagefile and Swap Analysis
+
+
+
+Samenvatting – Challenges in Memory Acquisition
+
+Het maken van een betrouwbare memory dump is moeilijk omdat malware anti-forensics technieken gebruikt.
+
+Malware kan zich verbergen in RAM of forensische tools misleiden.
+
+Veelvoorkomende technieken:
+
+Unlinked/hidden modules: malware verwijdert zichzelf uit proceslijsten.
+
+DKOM: kernelstructuren worden aangepast om processen, threads of drivers te verbergen.
+
+Code injection: kwaadaardige code draait binnen legitieme processen (bv. explorer.exe, svchost.exe).
+
+Memory patching: geheugen of API’s worden aangepast om tools te saboteren.
+
+API / syscall hooking: outputs van functies worden gemanipuleerd om malware te verbergen.
+
+Encrypted/packed payloads: code is versleuteld of gecomprimeerd in geheugen en alleen tijdelijk zichtbaar.
+
+Trigger-based payloads: malware activeert zich pas onder specifieke voorwaarden.
+
+Door encryptie en obfuscatie is geheugeninhoud moeilijk te interpreteren.
+
+Daarom moeten analisten verder gaan dan standaardtools en gebruikmaken van:
+
+memory carving
+
+kernel-level inspectie
+
+gedrag-gebaseerde analyse
+
+👉 Conclusie: memory forensics vereist geavanceerde technieken om verborgen of gemanipuleerde malware te detecteren.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

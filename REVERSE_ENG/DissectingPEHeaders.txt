@@ -71,6 +71,48 @@ Relocations worden berekend relatief ten opzichte van de ImageBase.
 - DataDirectory --> bevat import en export info 
 
 
+IMAGE_SECTION_HEADER-----------------------------------------------------------
+
+- info over code, images, functies, ....
+
+.text --> executable code app 
+.data --> data 
+.rdata/.idata --> import info 
+.ndata --> uninitialized data 
+.reloc --> relocation info van pe 
+.rsrc --> icons, images 
+
+belangrijke info hiervan:
+VirtualAddress --> Relative Virtual Address (RVA) in the memory.
+VirtualSize --> section grootte wanneer geladen in ram 
+SizeOfRawData --> size op de disk voor in werkgeheugen 
+Characteristics --> permissions van sectie 
+
+
+IMAGE_IMPORT_DESCRIPTOR -------------------------------------------------------------
+
+hier staat welke imports die aanroept
+welke windows api calls worden aangeroepen 
+
+originalfirsttrunk en firsttrunk -->  The Operating System uses these values to build the Import Address Table (IAT)
+
+
+PACKER----------------------------------
+
+packer --> tool data obfusceren van een PE zodat het niet gelezen kan worden zonder het de unpacken 
+wanner packet file runt --> het runt de unpacked versie 
+
+pecheck kan je zien als een file packed is of in petree kijken bij IMAGE_SECTION_HEADER
+
+hoge entropy --> 8 
+
+permissions kan ook teken zijn 
+
+SizeOfRawData and Misc_VirtualSize --> packed file SizeOfRawData vele kleiner dan Misc_VirtualSize in sections with WRITE and EXECUTE permissions
+
+kan je ook zien aan de import --> weinig imports, meestal dit: GetProcAddress, GetModuleHandleA, and LoadLibraryA
+
+
 
 
 
